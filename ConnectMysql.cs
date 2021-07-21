@@ -66,15 +66,78 @@ namespace ConectionToDLL
         }
         public bool INSERT(string commandSql)
         {
-            return true;
+            try
+            {
+                bool blnReturn = false;
+                if (connect())
+                {
+                    objCommand.CommandText = commandSql;
+                    int result = objCommand.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        blnReturn = true;
+                    } else
+                    {
+                        Erro = "Erro na inclusão de dados";
+                    }
+                }
+                return blnReturn;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public bool UPDATE(string commandSql)
         {
-            return true;
+            try
+            {
+                bool blnReturn = false;
+                if (connect())
+                {
+                    objCommand.CommandText = commandSql;
+                    int result = objCommand.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        blnReturn = true;
+                    } else 
+                    {
+                        Erro = "Erro na alteração de dados.";
+                    }
+                }
+                return blnReturn;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public bool DELETE(string commandSql)
         {
-            return true;
+            try
+            {
+                bool blnReturn = false;
+                if (connect())
+                {
+                    objCommand.CommandText = commandSql;
+                    int result = objCommand.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        blnReturn = true;
+                    } else
+                    {
+                        Erro = "Erro na exclusão de dados.";
+                    }
+                }
+                return blnReturn;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public string[,] SELECT_1(string commandSql)
         {
@@ -150,15 +213,78 @@ namespace ConectionToDLL
         }
         public bool INSERT(string commandSql)
         {
-            return true;
+            try
+            {
+                bool blReturn = false;
+                if (connect())
+                {
+                    objCommand.CommandText = commandSql;
+                    int result = objCommand.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        blReturn = true;
+                    } else
+                    {
+                        Erro = "Erro na inserção de dados.";
+                    }
+                }
+                return blReturn;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public bool UPDATE(string commandSql)
         {
-            return true;
+            try
+            {
+                bool blnReturn = false;
+                if (connect())
+                {
+                    objCommand.CommandText = commandSql;
+                    int result = objCommand.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        blnReturn = true;
+                    } else
+                    {
+                        Erro = "Erro na alteração de dados.";
+                    }
+                }
+                return blnReturn;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public bool DELETE(string commandSql)
         {
-            return true;
+            try
+            {
+                bool blnReturn = false;
+                if (connect())
+                {
+                    objCommand.CommandText = commandSql;
+                    int result = objCommand.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        blnReturn = true;
+                    } else
+                    {
+                        Erro = "Erro na exclusão de dados.";
+                    }
+                }
+                return blnReturn;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public string[,] SELECT_1(string commandSql)
         {
