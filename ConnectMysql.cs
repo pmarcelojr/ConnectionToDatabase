@@ -145,7 +145,25 @@ namespace ConectionToDLL
         }
         public DataTable SELECT_2(string commandSql)
         {
-            return null;
+            try
+            {
+                if(connect())
+                {
+                    objDateToMemory = new MySqlDataAdapter(commandSql, objConnection);
+                    DataTable tabledata = new DataTable();
+                    objDateToMemory.Fill(tabledata);
+                    if (tabledata.Rows.Count > 0)
+                    {
+                        return tabledata;
+                    }
+                }
+                return null;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return null;
+            }
         }
     }
 }
@@ -292,7 +310,25 @@ namespace ConectionToDLL
         }
         public DataTable SELECT_2(string commandSql)
         {
-            return null;
+           try
+           {
+               if (connect())
+               {
+                    objDateToMemory = new SqlDataAdapter(commandSql, objConnection);
+                    DataTable tabledata = new DataTable();
+                    objDateToMemory.Fill(tabledata);
+                    if (tabledata.Rows.Count > 0)
+                    {
+                        return tabledata;
+                    }
+               }
+                return null;
+           }
+           catch (Exception _erro)
+           {
+               Erro = _erro.Message.ToString();
+               return null;
+           }
         }
     }
 }
