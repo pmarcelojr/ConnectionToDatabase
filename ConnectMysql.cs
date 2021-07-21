@@ -25,19 +25,44 @@ namespace ConectionToDLL
 
         public string getErro()
         {
-            return "";
+            return this.Erro;
         }
         private bool connect()
         {
-            return true;
+            try
+            {
+                disconnect();
+                objConnection.ConnectionString = strConnect;
+                objCommand.Connection = objConnection;
+                objConnection.Open();
+                return true;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
+            
         }
         private bool disconnect()
         {
-            return true;
+            try
+            {
+                if (objConnection.State == ConnectionState.Open)
+                {
+                    objConnection.Close();
+                }
+                return true;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public bool testConnect()
         {
-            return true;
+            return connect();
         }
         public bool INSERT(string commandSql)
         {
@@ -85,19 +110,43 @@ namespace ConectionToDLL
 
         public string getErro()
         {
-            return "";
+            return this.Erro;
         }
         private bool connect()
         {
-            return true;
+            try
+            {
+                disconnect();
+                objConnection.ConnectionString = strConnect;
+                objCommand.Connection = objConnection;
+                objConnection.Open();
+                return true;                
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         private bool disconnect()
         {
-            return true;
+            try
+            {
+                if (objConnection.State == ConnectionState.Open)
+                {
+                    objConnection.Close();
+                }
+                return true;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return false;
+            }
         }
         public bool testConnect()
         {
-            return true;
+            return connect();
         }
         public bool INSERT(string commandSql)
         {
