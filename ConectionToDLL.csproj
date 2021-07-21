@@ -4,4 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>./DLLs/Mysql.Data.dll</HintPath>
+      <!--<SpecificVersion>True</SpecificVersion> 
+       You may set it to true if your dll has a specific version -->
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
 </Project>
