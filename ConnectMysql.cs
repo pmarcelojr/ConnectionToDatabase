@@ -141,7 +141,38 @@ namespace ConectionToDLL
         }
         public string[,] SELECT_1(string commandSql)
         {
-            return null;
+            try
+            {
+                string[,] result = null;
+                if (connect())
+                {
+                    objDateToMemory = new MySqlDataAdapter(commandSql, objConnection);
+                    DataTable tabledata = new DataTable();
+                    objDateToMemory.Fill(tabledata);
+                    if (tabledata.Rows.Count > 0)
+                    {
+                        int l = tabledata.Rows.Count;
+                        int c = tabledata.Columns.Count;
+                        result = new string[l, c];
+                        DataRow[] lines = tabledata.Select();
+                        int count = 0;
+                        foreach (DataRow line in lines)
+                        {
+                            for (int i = 0; i < c; i++)
+                            {
+                                result[count, i] = line[i].ToString();
+                            }
+                            count++;
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (Exception _erro)
+            {
+                Erro =_erro.Message.ToString();
+                return null;
+            }
         }
         public DataTable SELECT_2(string commandSql)
         {
@@ -306,7 +337,38 @@ namespace ConectionToDLL
         }
         public string[,] SELECT_1(string commandSql)
         {
-            return null;
+            try
+            {
+                string[,] result = null;
+                if (connect())
+                {
+                    objDateToMemory = new SqlDataAdapter(commandSql, objConnection);
+                    DataTable tabledata = new DataTable();
+                    objDateToMemory.Fill(tabledata);
+                    if (tabledata.Rows.Count > 0)
+                    {
+                        int l = tabledata.Rows.Count;
+                        int c = tabledata.Columns.Count;
+                        result = new string[l, c];
+                        DataRow[] lines = tabledata.Select();
+                        int count = 0;
+                        foreach (DataRow line in lines)
+                        {
+                            for (int i = 0; i < c; i++)
+                            {
+                                result[count, i] = line[i].ToString();
+                            }
+                            count++;
+                        }
+                    }
+                }   
+                return result;
+            }
+            catch (Exception _erro)
+            {
+                Erro = _erro.Message.ToString();
+                return null;
+            }
         }
         public DataTable SELECT_2(string commandSql)
         {
