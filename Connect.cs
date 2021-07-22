@@ -11,7 +11,6 @@ namespace ConectionToDLL
         
         private MySqlConnection objConnection = new MySqlConnection();
         private MySqlCommand objCommand = new MySqlCommand();
-        private MySqlDataReader objData;
         private MySqlDataAdapter objDateToMemory;
         private string Erro;
         public string strConnect;
@@ -208,7 +207,6 @@ namespace ConectionToDLL
         
         private SqlConnection objConnection = new SqlConnection();
         private SqlCommand objCommand = new SqlCommand();
-        private SqlDataReader objData;
         private SqlDataAdapter objDateToMemory;
         private string Erro;
         public string strConnect;
